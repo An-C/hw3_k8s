@@ -1,0 +1,39 @@
+replicaCount: 1
+namespace: "otus"
+
+image:
+  repository: irmdevdocker/user
+  pullPolicy: IfNotPresent
+  tag: 0.0.1
+
+ingress:
+  enabled: true
+  className: "nginx"
+#  namespace: otus
+  host: arch.homework
+#  annotations:
+#    kubernetes.io/ingress.class: "nginx"
+#  hosts:
+#    - host: arch.homework
+#      paths:
+#        - path: /
+#          pathType: Prefix
+
+database:
+  postgres:
+    replicaCount: 1
+    host: "chart-user-postgresql"
+    database: "otus"
+    password: "test123"
+    user: "postgres"
+    port: "5432"
+#    namespace: "otus"
+
+global:
+  postgresql:
+#    namespace: "otus"
+    auth:
+      username: "postgres"
+      password: "test123"
+      database: "otus"
+      postgresPassword: "test123"

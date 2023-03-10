@@ -1,0 +1,66 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user-deployment
+#  namespace: {{ .Values.namespace }}
+  labels:
+    app: user
+spec:
+  selector:
+    matchLabels:
+      app: user
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  template:
+    metadata:
+      labels:
+        app: user
+    spec:
+      containers:
+        - image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          name: user-container
+          env:
+          - name: pg-name
+            valueFrom:
+              configMapKeyRef:
+                name: user-config
+                key: pg-name
+          - name: pg-user
+            valueFrom:
+              configMapKeyRef:
+                name: user-config
+                key: pg-user
+          - name: pg-pass
+            valueFrom:
+              secretKeyRef:
+                name: user-secrets
+                key: pg-password
+          - name: pg-schema
+            valueFrom:
+              configMapKeyRef:
+                name: user-config
+                key: pg-schema
+          - name: pg-host
+            valueFrom:
+              configMapKeyRef:
+                name: user-config
+                key: pg-host
+          - name: pg-port
+            valueFrom:
+              configMapKeyRef:
+                name: user-config
+                key: pg-port
+          ports:
+            - name: web
+              containerPort: 8080
+          imagePullPolicy: IfNotPresent
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+            initialDelaySeconds: 1
+            periodSeconds: 10

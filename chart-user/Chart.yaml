@@ -1,0 +1,16 @@
+apiVersion: v2
+name: user-chart
+description: ws-user chart
+type: application
+version: 0.0.1 # Helm chart version
+appVersion: 0.0.1 # Application version
+
+
+dependencies:
+  - name: postgresql
+    repository: https://charts.bitnami.com/bitnami
+    version: 12.2.1
+#    namespace: otus
+  - name: ingress-nginx
+    version: 4.5.2
+    repository: https://kubernetes.github.io/ingress-nginx
