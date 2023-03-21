@@ -15,9 +15,14 @@
 
 
 ###
-#### Установка Ingress Controller-a (если не установлен)
+#### Namespace (если отсутствует)
 ```
 kubectl create namespace m 
+```
+
+###
+#### Установка Ingress Controller-a (если не установлен)
+```
 helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 helm repo update 
 helm install nginx ingress-nginx/ingress-nginx --namespace m -f nginx-ingress.yaml
