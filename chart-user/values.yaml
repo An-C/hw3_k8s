@@ -1,5 +1,5 @@
 replicaCount: 1
-namespace: "otus"
+namespace: "m"
 
 image:
   repository: irmdevdocker/user
@@ -9,31 +9,17 @@ image:
 ingress:
   enabled: true
   className: "nginx"
-#  namespace: otus
+  namespace: ${namespace}
   host: arch.homework
-#  annotations:
-#    kubernetes.io/ingress.class: "nginx"
-#  hosts:
-#    - host: arch.homework
-#      paths:
-#        - path: /
-#          pathType: Prefix
+
 
 database:
   postgres:
     replicaCount: 1
-    host: "chart-user-postgresql"
+    host: "user-db-postgresql"
     database: "otus"
     password: "test123"
     user: "postgres"
     port: "5432"
-#    namespace: "otus"
+    namespace: ${namespace}
 
-global:
-  postgresql:
-#    namespace: "otus"
-    auth:
-      username: "postgres"
-      password: "test123"
-      database: "otus"
-      postgresPassword: "test123"

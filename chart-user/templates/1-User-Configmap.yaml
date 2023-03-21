@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: user-config
-#  namespace: "{{ .Values.namespace }}"
+  namespace: "{{ .Values.namespace }}"
 data:
   pg-host: "{{ .Values.database.postgres.host }}"
   pg-port: "{{ .Values.database.postgres.port }}"

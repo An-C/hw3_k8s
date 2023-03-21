@@ -13,11 +13,48 @@
 - Ingress-ы должны также вести на url arch.homework
 
 
-### Установка
 
-helm install chart-user chart-user -f chart-user/values.yaml
+###
+#### Установка Ingress Controller-a (если не установлен)
+```
+kubectl create namespace m 
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+helm repo update 
+helm install nginx ingress-nginx/ingress-nginx --namespace m -f nginx-ingress.yaml
+```
+###
+#### Установка БД (если не установлена)
+```
+helm repo add bitnami https://charts.bitnami.com/bitnami
+helm install --namespace m user-db bitnami/postgresql -f pg-values.yaml
+```
+###
+### Установка приложения
+```
+helm install --namespace m chart-user chart-user -f chart-user/values.yaml
+```
 
- 
+###
+#### Использование postman-коллекции
+- импортировать коллекцию User Service.postman_collection.json
+- в baseUrl должно быть прописано значение http://arch.homework
+
+
+
+#
+#### Удаление приложения и БД
+```
+helm delete chart-user -n m
+helm delete user-db -n m
+```
+
+
+#### Дополнительные команды при неудачной установке чарта
+```
+kubectl delete job chart-user
+kubectl delete pvc data-user-db-postgresql-0
+```
+
 
 
 
