@@ -11,6 +11,75 @@
 			"name": "user",
 			"item": [
 				{
+					"name": "Create user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"{{$randomUserName}}\",\n  \"firstName\": \"{{$randomFirstName}}\",\n  \"lastName\": \"{{$randomLastName}}\",\n  \"email\": \"{{$randomEmail}}\",\n  \"phone\": \"{{$randomPhoneNumber}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/user",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user"
+							]
+						},
+						"description": "This can only be done by the logged in user."
+					},
+					"response": [
+						{
+							"name": "successful operation",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"username\": \"johndoe589\",\n  \"firstName\": \"John\",\n  \"lastName\": \"Doe\",\n  \"email\": \"bestjohn@doe.com\",\n  \"phone\": \"+71002003040\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/user",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"user"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
 					"name": "{userId}",
 					"item": [
 						{
@@ -24,19 +93,18 @@
 									}
 								],
 								"url": {
-									"raw": "{{baseUrl}}/v1/user/:userId",
+									"raw": "{{baseUrl}}/user/:userId",
 									"host": [
 										"{{baseUrl}}"
 									],
 									"path": [
-										"v1",
 										"user",
 										":userId"
 									],
 									"variable": [
 										{
 											"key": "userId",
-											"value": "11",
+											"value": "1",
 											"description": "(Required) ID of user"
 										}
 									]
@@ -140,19 +208,18 @@
 									}
 								},
 								"url": {
-									"raw": "{{baseUrl}}/v1/user/:userId",
+									"raw": "{{baseUrl}}/user/:userId",
 									"host": [
 										"{{baseUrl}}"
 									],
 									"path": [
-										"v1",
 										"user",
 										":userId"
 									],
 									"variable": [
 										{
 											"key": "userId",
-											"value": "3",
+											"value": "1",
 											"description": "(Required) ID of user"
 										}
 									]
@@ -261,12 +328,11 @@
 									}
 								],
 								"url": {
-									"raw": "{{baseUrl}}/v1/user/:userId",
+									"raw": "{{baseUrl}}/user/:userId",
 									"host": [
 										"{{baseUrl}}"
 									],
 									"path": [
-										"v1",
 										"user",
 										":userId"
 									],
@@ -354,76 +420,6 @@
 							]
 						}
 					]
-				},
-				{
-					"name": "Create user",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"username\": \"{{$randomUserName}}\",\n  \"firstName\": \"{{$randomFirstName}}\",\n  \"lastName\": \"{{$randomLastName}}\",\n  \"email\": \"{{$randomEmail}}\",\n  \"phone\": \"{{$randomPhoneNumber}}\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{baseUrl}}/v1/user",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"v1",
-								"user"
-							]
-						},
-						"description": "This can only be done by the logged in user."
-					},
-					"response": [
-						{
-							"name": "successful operation",
-							"originalRequest": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n  \"username\": \"johndoe589\",\n  \"firstName\": \"John\",\n  \"lastName\": \"Doe\",\n  \"email\": \"bestjohn@doe.com\",\n  \"phone\": \"+71002003040\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{baseUrl}}/user",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"user"
-									]
-								}
-							},
-							"status": "Internal Server Error",
-							"code": 500,
-							"_postman_previewlanguage": "text",
-							"header": [
-								{
-									"key": "Content-Type",
-									"value": "text/plain"
-								}
-							],
-							"cookie": [],
-							"body": ""
-						}
-					]
 				}
 			]
 		}
@@ -431,7 +427,7 @@
 	"variable": [
 		{
 			"key": "baseUrl",
-			"value": "http://arch.homework/v1/",
+			"value": "http://arch.homework/v1",
 			"type": "string"
 		}
 	]

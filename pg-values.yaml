@@ -1,8 +1,0 @@
-global:
-  postgresql:
-    namespace: "m"
-    auth:
-      username: "postgres"
-      password: "test123"
-      database: "otus"
-      postgresPassword: "test123"

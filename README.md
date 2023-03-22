@@ -15,50 +15,32 @@
 
 
 ###
-#### Namespace (если отсутствует)
+#### Создание Namespace (если отсутствует)
 ```
-kubectl create namespace m 
+kubectl create namespace otus
 ```
 
 ###
-#### Установка Ingress Controller-a (если не установлен)
-```
-helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
-helm repo update 
-helm install nginx ingress-nginx/ingress-nginx --namespace m -f nginx-ingress.yaml
-```
-###
-#### Установка БД (если не установлена)
-```
-helm repo add bitnami https://charts.bitnami.com/bitnami
-helm install --namespace m user-db bitnami/postgresql -f pg-values.yaml
-```
-###
 ### Установка приложения
 ```
-helm install --namespace m chart-user chart-user -f chart-user/values.yaml
+helm install --namespace otus chart-user chart-user -f chart-user/values.yaml
 ```
 
 ###
 #### Использование postman-коллекции
-- импортировать коллекцию User Service.postman_collection.json
-- в baseUrl должно быть прописано значение http://arch.homework
+```
+newman run "User Service.postman_collection.json"
+```
 
 
 
 #
-#### Удаление приложения и БД
+#### Удаление приложения
 ```
-helm delete chart-user -n m
-helm delete user-db -n m
+helm delete chart-user -n otus
 ```
 
 
-#### Дополнительные команды при неудачной установке чарта
-```
-kubectl delete job chart-user
-kubectl delete pvc data-user-db-postgresql-0
-```
 
 
 

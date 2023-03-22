@@ -1,5 +1,5 @@
 replicaCount: 1
-namespace: "m"
+namespace: "otus"
 
 image:
   repository: irmdevdocker/user
@@ -16,10 +16,18 @@ ingress:
 database:
   postgres:
     replicaCount: 1
-    host: "user-db-postgresql"
+    host: "chart-user-postgresql"
     database: "otus"
     password: "test123"
     user: "postgres"
     port: "5432"
     namespace: ${namespace}
 
+global:
+  postgresql:
+    namespace: ${namespace}
+    auth:
+      username: "postgres"
+      password: "test123"
+      database: "otus"
+      postgresPassword: "test123"
