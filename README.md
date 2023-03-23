@@ -29,7 +29,7 @@ helm install --namespace otus chart-user chart-user -f chart-user/values.yaml
 ###
 #### Использование postman-коллекции
 ```
-newman run "User Service.postman_collection.json"
+newman run user_service.postman_collection.json
 ```
 
 
