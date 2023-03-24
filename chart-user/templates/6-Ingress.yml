@@ -4,7 +4,6 @@ metadata:
   name: user-ingress
   namespace: "{{ .Values.namespace }}"
   annotations:
-    kubernetes.io/ingress.class: "{{ .Values.ingress.className }}"
     meta.helm.sh: "{{ .Chart.Name }}"
     nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
@@ -13,6 +12,7 @@ metadata:
         rewrite ^/otusapp/([A-Za-z]+)/.* / break;
         return 500;
 spec:
+  ingressClassName: {{ .Values.ingress.className }}
   rules:
     - host: {{ .Values.ingress.host }}
       http:
