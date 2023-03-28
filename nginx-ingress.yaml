@@ -1,5 +1,6 @@
 controller:
   kind: DaemonSet
+  ingressClass: "nginx"
 
   reportNodeInternalIp: true
 
@@ -10,4 +11,4 @@ controller:
       https: 443
 
   service:
-    type: NodePort
+    type: LoadBalancer

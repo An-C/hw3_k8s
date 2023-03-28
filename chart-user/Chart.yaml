@@ -2,7 +2,7 @@ apiVersion: v2
 name: chart-user
 description: ws-user chart
 type: application
-version: 0.0.4 # Helm chart version
+version: 0.0.5 # Helm chart version
 appVersion: 0.0.1 # Application version
 
 

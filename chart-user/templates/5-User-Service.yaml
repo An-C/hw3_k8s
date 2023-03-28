@@ -5,8 +5,8 @@ metadata:
   namespace: {{ .Values.namespace }}
 spec:
   type: ClusterIP
-  ports:
-    - port: 80
-      targetPort: 8080
   selector:
     app: user
+  ports:
+    - port: 8000
+      targetPort: 8080

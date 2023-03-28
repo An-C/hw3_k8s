@@ -1,28 +1,30 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: user-ingress
-  namespace: "{{ .Values.namespace }}"
+  name: ingress
+  namespace: {{ .Values.namespace }}
   annotations:
-    meta.helm.sh: "{{ .Chart.Name }}"
     nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
-    nginx.ingress.kubernetes.io/configuration-snippet: |
-        rewrite ^/health/?$ /health break;
-        rewrite ^/otusapp/([A-Za-z]+)/.* / break;
-        return 500;
+    nginx.ingress.kubernetes.io/use-regex: "true"
+#    nginx.ingress.kubernetes.io/rewrite-target: /v1/user$2
+#    nginx.ingress.kubernetes.io/configuration-snippet: |
+#        rewrite ^/health/?$ /health break;
+#        rewrite ^/otusapp/([A-Za-z]+)/.* / break;
 spec:
-  ingressClassName: {{ .Values.ingress.className }}
+  ingressClassName: nginx
   rules:
-    - host: {{ .Values.ingress.host }}
+    - host: arch.homework
       http:
         paths:
-          - backend:
+          - pathType: Prefix
+            path: / #user(/|$)(.*)
+            backend:
               service:
                 name: user-service
                 port:
-                  number: 80
-            pathType: Prefix
-            path: /
+                  number: 8000
+
+
 
 
