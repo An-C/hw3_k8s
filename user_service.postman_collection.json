@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "130c2b39-f99a-4430-a425-521d65ebe6df",
 		"name": "User Service",
-		"description": "This is simple client API\n\n\nContact Support:\n Email: what_is_it@inbox.ru",
+		"description": "This is simple client API\n\n\nContact Support:\n Email: schetinnikov@gmail.com",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "8389126"
 	},
@@ -30,12 +30,11 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseUrl}}/v1/user",
+							"raw": "{{baseUrl}}/user",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
-								"v1",
 								"user"
 							]
 						},
@@ -57,12 +56,11 @@
 									}
 								},
 								"url": {
-									"raw": "{{baseUrl}}/v1/user",
+									"raw": "{{baseUrl}}/user",
 									"host": [
 										"{{baseUrl}}"
 									],
 									"path": [
-										"v1",
 										"user"
 									]
 								}
@@ -95,12 +93,11 @@
 									}
 								],
 								"url": {
-									"raw": "{{baseUrl}}/v1/user/:userId",
+									"raw": "{{baseUrl}}/user/:userId",
 									"host": [
 										"{{baseUrl}}"
 									],
 									"path": [
-										"v1",
 										"user",
 										":userId"
 									],
@@ -121,12 +118,11 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{baseUrl}}/v1/user/:userId",
+											"raw": "{{baseUrl}}/user/:userId",
 											"host": [
 												"{{baseUrl}}"
 											],
 											"path": [
-												"v1",
 												"user",
 												":userId"
 											],
@@ -157,12 +153,11 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{baseUrl}}/v1/user/:userId",
+											"raw": "{{baseUrl}}/user/:userId",
 											"host": [
 												"{{baseUrl}}"
 											],
 											"path": [
-												"v1",
 												"user",
 												":userId"
 											],
@@ -213,12 +208,11 @@
 									}
 								},
 								"url": {
-									"raw": "{{baseUrl}}/v1/user/:userId",
+									"raw": "{{baseUrl}}/user/:userId",
 									"host": [
 										"{{baseUrl}}"
 									],
 									"path": [
-										"v1",
 										"user",
 										":userId"
 									],
@@ -248,12 +242,11 @@
 											}
 										},
 										"url": {
-											"raw": "{{baseUrl}}/v1/user/:userId",
+											"raw": "{{baseUrl}}/user/:userId",
 											"host": [
 												"{{baseUrl}}"
 											],
 											"path": [
-												"v1",
 												"user",
 												":userId"
 											],
@@ -293,12 +286,11 @@
 											}
 										},
 										"url": {
-											"raw": "{{baseUrl}}/v1/user/:userId",
+											"raw": "{{baseUrl}}/user/:userId",
 											"host": [
 												"{{baseUrl}}"
 											],
 											"path": [
-												"v1",
 												"user",
 												":userId"
 											],
@@ -336,12 +328,11 @@
 									}
 								],
 								"url": {
-									"raw": "{{baseUrl}}/v1/user/:userId",
+									"raw": "{{baseUrl}}/user/:userId",
 									"host": [
 										"{{baseUrl}}"
 									],
 									"path": [
-										"v1",
 										"user",
 										":userId"
 									],
@@ -362,12 +353,11 @@
 										"method": "DELETE",
 										"header": [],
 										"url": {
-											"raw": "{{baseUrl}}/v1/user/:userId",
+											"raw": "{{baseUrl}}/user/:userId",
 											"host": [
 												"{{baseUrl}}"
 											],
 											"path": [
-												"v1",
 												"user",
 												":userId"
 											],
@@ -398,12 +388,11 @@
 										"method": "DELETE",
 										"header": [],
 										"url": {
-											"raw": "{{baseUrl}}/v1/user/:userId",
+											"raw": "{{baseUrl}}/user/:userId",
 											"host": [
 												"{{baseUrl}}"
 											],
 											"path": [
-												"v1",
 												"user",
 												":userId"
 											],

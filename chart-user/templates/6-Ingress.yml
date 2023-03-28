@@ -7,10 +7,11 @@ metadata:
     nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
     nginx.ingress.kubernetes.io/use-regex: "true"
-#    nginx.ingress.kubernetes.io/rewrite-target: /v1/user$2
-#    nginx.ingress.kubernetes.io/configuration-snippet: |
-#        rewrite ^/health/?$ /health break;
-#        rewrite ^/otusapp/([A-Za-z]+)/.* / break;
+#    nginx.ingress.kubernetes.io/rewrite-target: /v1/$2
+    nginx.ingress.kubernetes.io/configuration-snippet: |
+        rewrite ^/user/(.*)$ /v1/user/$1 break;
+        rewrite ^/user /v1/user break;
+        rewrite ^/otusapp/([A-Za-z]+)/.* / break;
 spec:
   ingressClassName: nginx
   rules:
@@ -18,7 +19,7 @@ spec:
       http:
         paths:
           - pathType: Prefix
-            path: / #user(/|$)(.*)
+            path: /
             backend:
               service:
                 name: user-service
