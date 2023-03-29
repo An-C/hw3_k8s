@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "130c2b39-f99a-4430-a425-521d65ebe6df",
 		"name": "User Service",
-		"description": "This is simple client API\n\n\nContact Support:\n Email: schetinnikov@gmail.com",
+		"description": "This is simple client API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "8389126"
 	},
@@ -12,6 +12,19 @@
 			"item": [
 				{
 					"name": "Create user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var user = JSON.parse(responseBody);\r",
+									"pm.environment.set(\"userId\", user.id);\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [
@@ -93,18 +106,18 @@
 									}
 								],
 								"url": {
-									"raw": "{{baseUrl}}/user/:userId",
+									"raw": "{{baseUrl}}/user/{{userId}}",
 									"host": [
 										"{{baseUrl}}"
 									],
 									"path": [
 										"user",
-										":userId"
+										"{{userId}}"
 									],
 									"variable": [
 										{
 											"key": "userId",
-											"value": "1",
+											"value": "{{userId}}",
 											"description": "(Required) ID of user"
 										}
 									]
@@ -118,13 +131,13 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{baseUrl}}/user/:userId",
+											"raw": "{{baseUrl}}/user/{{userId}}",
 											"host": [
 												"{{baseUrl}}"
 											],
 											"path": [
 												"user",
-												":userId"
+												"{{userId}}"
 											],
 											"variable": [
 												{
@@ -153,13 +166,13 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{baseUrl}}/user/:userId",
+											"raw": "{{baseUrl}}/user/{{userId}}",
 											"host": [
 												"{{baseUrl}}"
 											],
 											"path": [
 												"user",
-												":userId"
+												"{{userId}}"
 											],
 											"variable": [
 												{
@@ -208,18 +221,18 @@
 									}
 								},
 								"url": {
-									"raw": "{{baseUrl}}/user/:userId",
+									"raw": "{{baseUrl}}/user/{{userId}}",
 									"host": [
 										"{{baseUrl}}"
 									],
 									"path": [
 										"user",
-										":userId"
+										"{{userId}}"
 									],
 									"variable": [
 										{
 											"key": "userId",
-											"value": "1",
+											"value": "{{userId}}",
 											"description": "(Required) ID of user"
 										}
 									]
@@ -242,13 +255,13 @@
 											}
 										},
 										"url": {
-											"raw": "{{baseUrl}}/user/:userId",
+											"raw": "{{baseUrl}}/user/{{userId}}",
 											"host": [
 												"{{baseUrl}}"
 											],
 											"path": [
 												"user",
-												":userId"
+												"{{userId}}"
 											],
 											"variable": [
 												{
@@ -286,13 +299,13 @@
 											}
 										},
 										"url": {
-											"raw": "{{baseUrl}}/user/:userId",
+											"raw": "{{baseUrl}}/user/{{userId}}",
 											"host": [
 												"{{baseUrl}}"
 											],
 											"path": [
 												"user",
-												":userId"
+												"{{userId}}"
 											],
 											"variable": [
 												{
@@ -328,18 +341,18 @@
 									}
 								],
 								"url": {
-									"raw": "{{baseUrl}}/user/:userId",
+									"raw": "{{baseUrl}}/user/{{userId}}",
 									"host": [
 										"{{baseUrl}}"
 									],
 									"path": [
 										"user",
-										":userId"
+										"{{userId}}"
 									],
 									"variable": [
 										{
 											"key": "userId",
-											"value": "1",
+											"value": "{{userId}}",
 											"description": "(Required) ID of user"
 										}
 									]
@@ -353,13 +366,13 @@
 										"method": "DELETE",
 										"header": [],
 										"url": {
-											"raw": "{{baseUrl}}/user/:userId",
+											"raw": "{{baseUrl}}/user/{{userId}}",
 											"host": [
 												"{{baseUrl}}"
 											],
 											"path": [
 												"user",
-												":userId"
+												"{{userId}}"
 											],
 											"variable": [
 												{
@@ -388,13 +401,13 @@
 										"method": "DELETE",
 										"header": [],
 										"url": {
-											"raw": "{{baseUrl}}/user/:userId",
+											"raw": "{{baseUrl}}/user/{{userId}}",
 											"host": [
 												"{{baseUrl}}"
 											],
 											"path": [
 												"user",
-												":userId"
+												"{{userId}}"
 											],
 											"variable": [
 												{
@@ -422,6 +435,26 @@
 					]
 				}
 			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
 		}
 	],
 	"variable": [
