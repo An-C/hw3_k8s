@@ -4,7 +4,7 @@ namespace: "otus"
 image:
   repository: irmdevdocker/user
   pullPolicy: IfNotPresent
-  tag: 0.0.1
+  tag: 0.0.2
 
 ingress:
   enabled: true

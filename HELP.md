@@ -13,3 +13,10 @@ helm install nginx ingress-nginx/ingress-nginx --namespace m -f nginx-ingress.ya
 kubectl delete job chart-user -n otus
 kubectl delete pvc data-chart-user-postgresql-0 -n otus
 ```
+
+
+#### Команда установки БД отдельно
+```
+helm repo add bitnami https://charts.bitnami.com/bitnami
+helm install --namespace m user-db bitnami/postgresql -f pg-values.yaml
+```
